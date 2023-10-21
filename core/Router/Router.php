@@ -23,9 +23,9 @@ class Router implements Router_Interface
 
     public function onUpdateReceived(): void
     {
-        $this->errors->log($this->json);
 
         if (isset($this->json["message"])) {
+            $this->errors->log($this->json);
             SendMessage::send($this->json, $this->token);
         }
     }
